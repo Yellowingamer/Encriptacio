@@ -81,7 +81,7 @@ public class ProgramaPrincipal {
         int clave = leerEntero(scanner);
 
         String resultado = cripto.Desencripta(mensajeEncriptado, clave);
-        System.out.println("\n>>> MENSAJE ORIGINAL RECUPERADO:");
+        System.out.println("\nMENSAJE RECUPERADO:");
         System.out.println(resultado);
     }
 

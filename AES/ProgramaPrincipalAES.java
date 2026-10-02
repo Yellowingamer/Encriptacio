@@ -1,12 +1,3 @@
-/**
- * ProgramaPrincipalAES - Programa de demostració del sistema de xifratge AES.
- *
- * Realitza les 4 proves requerides:
- *   Prova 1 – Clau correcta   : encripta i desencripta amb la mateixa clau.
- *   Prova 2 – Clau diferent   : intenta desencriptar amb una clau incorrecta.
- *   Prova 3 – Missatge diferent: comprova que funciona amb un altre text.
- *   Prova 4 – Clau incorrecta  : usa una clau de longitud no vàlida per a AES.
- */
 public class ProgramaPrincipalAES {
 
     public static void main(String[] args) {
@@ -20,7 +11,7 @@ public class ProgramaPrincipalAES {
         System.out.println("=".repeat(60));
 
         String missatge1 = "Aquest és un missatge secret.";
-        String clau1     = "1234567890123456"; // 16 caràcters = 128 bits
+        String clau1 = "1234567890123456"; // 16 caràcters = 128 bits
 
         System.out.println("Missatge original : " + missatge1);
         System.out.println("Clau              : " + clau1);
@@ -71,11 +62,11 @@ public class ProgramaPrincipalAES {
         System.out.println("=".repeat(60));
 
         String missatge3 = "Hola, món! Això és una altra prova amb accents àéíóú.";
-        String clau3     = "1234567890123456";
+        String clau3 = "1234567890123456";
 
         System.out.println("Missatge original : " + missatge3);
 
-        String xifrat3    = ClasseAES.encripta(missatge3, clau3);
+        String xifrat3 = ClasseAES.encripta(missatge3, clau3);
         System.out.println("Missatge xifrat   : " + xifrat3);
 
         String recuperat3 = ClasseAES.desencripta(xifrat3, clau3);
@@ -86,15 +77,16 @@ public class ProgramaPrincipalAES {
         // =====================================================================
         // PROVA 4 – Clau de longitud incorrecta
         // AES només accepta claus de 16, 24 o 32 bytes (128/192/256 bits).
-        // Una clau d'altra mida provocarà una excepció java.security.InvalidKeyException.
+        // Una clau d'altra mida provocarà una excepció
+        // java.security.InvalidKeyException.
         // =====================================================================
         System.out.println();
         System.out.println("=".repeat(60));
         System.out.println("   PROVA 4 – Clau de longitud incorrecta");
         System.out.println("=".repeat(60));
 
-        String missatge4   = "Missatge de prova";
-        String clauCurta   = "claucurta"; // 9 caràcters → NO és vàlida per a AES
+        String missatge4 = "Missatge de prova";
+        String clauCurta = "claucurta"; // 9 caràcters → NO és vàlida per a AES
 
         System.out.println("Missatge original : " + missatge4);
         System.out.println("Clau invàlida     : \"" + clauCurta + "\" (" + clauCurta.length() + " caràcters)");
@@ -121,7 +113,7 @@ public class ProgramaPrincipalAES {
 
         String mFinal = "Aquest és un missatge secret.";
         String kFinal = "1234567890123456";
-        boolean ok    = mFinal.equals(ClasseAES.desencripta(ClasseAES.encripta(mFinal, kFinal), kFinal));
+        boolean ok = mFinal.equals(ClasseAES.desencripta(ClasseAES.encripta(mFinal, kFinal), kFinal));
         System.out.println("Desencripta(Encripta(m, k), k) == m → " + ok);
         System.out.println("=".repeat(60));
     }
