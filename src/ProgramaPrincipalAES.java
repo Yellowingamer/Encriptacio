@@ -97,7 +97,7 @@ public class ProgramaPrincipalAES {
             String clave = scanner.nextLine();
             int bytesLen = clave.getBytes(StandardCharsets.UTF_8).length;
 
-            // AES requiere claves de 16, 24 o 32 bytes (128, 192 o 256 bits)
+            // AES requiere claves de 16, 24 o 32 bytes (128, 192 o 256 bits )
             if (bytesLen == 16 || bytesLen == 24 || bytesLen == 32) {
                 return clave;
             }
